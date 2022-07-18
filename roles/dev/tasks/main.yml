@@ -1,0 +1,5 @@
+---
+  - name: VSCode
+    import_tasks: vscode.yml
+    tags: vscode
+

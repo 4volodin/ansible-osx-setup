@@ -1,0 +1,345 @@
+osx_script: "~/.osx --no-restart"
+
+configure_osx: true
+configure_dotfiles: true
+configure_dock: true
+
+dockitems_remove:
+  - Launchpad
+  - Messages
+  - Mail
+  - Maps
+  - Photos
+  - FaceTime
+  - Contacts
+  - Notes
+  - TV
+  - Music
+  - Podcasts
+  - 'App Store'
+dockitems_persist:
+  - name: Finder
+    path: "/Applications/Finder"
+  - name: AppStore
+    path: "/Applications/AppStore"
+
+  - name: Strongbox
+    path: "/Applications/Strongbox.app"
+    pos: 2
+
+  - name: Toogl
+    path: "/Applications/Toggl Track.app"
+    pos: 3
+  - name: Reminders
+    path: "/Applications/Reminders"
+    pos: 4
+  - name: Calendar
+    path: "/Applications/Calendar"
+    pos: 5
+  - name: Things
+    path: "/Applications/Things3.app"
+    pos: 6
+
+  - name: Dash
+    path: "/Applications/Dash.app"
+    pos: 7
+  - name: Visual Studio Code
+    path: "/Applications/Visual Studio Code.app"
+    pos: 8
+  - name: PhpStorm
+    path: "/Applications/PhpStorm.app"
+    pos: 9
+
+  - name: Safari
+    path: "/Applications/Safari.app"
+    pos: 10
+  - name: Chrome
+    path: "/Applications/Chrome"
+    pos: 11
+
+  - name: iTerm
+    path: "/Applications/iTerm.app"
+    pos: 12
+
+  - name: Messages
+    path: "/Applications/Messages.app/"
+    pos: 13
+  - name: Slack
+    path: "/Applications/Slack.app"
+    pos: 14
+
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask
+  - homebrew/cask-fonts
+  - homebrew/services
+  #- homebrew/cask-drivers
+  #- homebrew/bundle
+  #- jesseduffield/lazydocker
+  #- universal-ctags/universal-ctags
+  #- derailed/popeye
+homebrew_installed_packages:
+  - cmake
+  - glib
+
+  - git
+  - mas
+
+  - python3
+  - lf
+  - tmux
+  - neovim
+  - ripgrep
+  - fzf
+  - starship
+  - autojump
+
+  # for LF file manager
+  - coreutils # timeout ...
+  - moreutils # includes chronic, combine, errno, ifdata, ifne, isutf8, lckdo, mispipe, parallel, pee, sponge, ts, vidir, vipe, zrun
+  - findutils
+  - mediainfo
+  - qrencode
+  - xpdf
+  - glow
+  - hexyl
+  - exiftool
+  - trash-cli
+  #- pdftotext
+  #- odt2txt
+  #- xmlstarlet
+  #- atool
+  #- pandoc
+  #- chafa
+  #- ffmpegthumbnailer # for preview video in LF file manager
+
+  # Files
+  - ncdu
+  - tree
+  #- broot
+
+  # Arhieve
+  - p7zip
+  - gzip
+  - gunzip
+
+  # Utils
+  - rsync
+  - fd
+  - readline
+  - jq
+  - pwgen
+  - watch
+  #- watchman
+  #- fasd
+  #- xz
+  #- ctags
+
+  # Net utils
+  - curl-openssl
+  - nmap
+  - telnet
+  - wget
+  - iperf3
+  - tor
+  #- httpie
+  #- socat
+  #- ipcalc
+
+  # Docker
+  - ctop #monitoring docker containers
+  - kubectl
+  - dive
+  #- stern #for kuber https://github.com/wercker/stern
+  #- derailed/popeye/popeye #for kuber  https://github.com/derailed/popeye
+  ##- kubectx # for kuber https://github.com/ahmetb/kubectx
+  #- jesseduffield/lazydocker/lazydocker
+
+  # Man pages
+  - tldr
+  - cheat
+
+  # CVS
+  - diff-so-fancy
+  - git-delta
+  - git-standup
+  - colordiff
+  #- subversion
+  #- tig
+  #- lazygit
+
+  # Prompt command line
+  #- bash-completion
+  #- bashdb # bash debugger for vscode plugin
+  - bat
+  - highlight
+  - fortune
+  - cowsay
+  #- exa
+
+  # Monitoring
+  - htop
+  - ifstat
+  - iftop
+  - gotop
+  - iproute2mac
+  - smartmontools
+  #- nethogs
+
+  # media
+  - openh264
+  - imagemagick --with-webp
+  - ffmpeg
+  - youtube-dl # to download video from youtube     youtube-dl -f bestvideo+bestaudio 'link'
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - qlcolorcode
+  - qlstephen
+  - qlmarkdown
+  - quicklook-json
+  - qlprettypatch
+  - quicklook-csv
+  - webpquicklook
+  - suspicious-package
+
+  - font-source-code-pro
+  - font-hack-nerd-font
+  - font-jetbrains-mono
+  - font-jetbrains-mono-nerd-font
+
+  # Remote adm
+  - teamviewer
+  - anydesk
+  #- nrlquaker-winbox
+  #- remote-desktop-manager-free
+  #- vnc-viewer
+  #- wireshark
+  #- cyberduck
+  #- zenmap
+
+  # Vpn
+  - tunnelblick
+  - wireguard-tools
+  #- openvpn-connect
+
+  # Dev
+  - docker
+  - visual-studio-code
+  - dash
+  - toggl-track
+  - sourcetree
+  - meld #diff tool
+  - paw
+  - iterm2
+  - ngrok
+  - dbeaver-community
+  - mongodb-compass
+  #- fiddler
+
+  # Social
+  - slack
+  - telegram
+  - zoom
+  #- skype
+  #- viber
+
+  # Media
+  - iina
+  - gray
+  - kap
+  - adobe-acrobat-reader
+  #- xnviewmp
+  #- vlc
+  #- screenflow
+  #- paintbrush
+  #- cleanshot
+  #- maccy
+
+  # Design
+  - figma
+  - imageoptim
+  #- drawio
+
+  # Browsers
+  - firefox
+  - google-chrome
+  - yandex
+  - microsoft-edge
+
+  # English
+  - mate-translate
+  - anki
+
+  # Utils
+  - marta
+  #- alfred
+  - evernote
+  - appcleaner
+  - keka
+  - showyedge
+  - keycastr
+  #- punto-switcher
+  - quitter
+  - macs-fan-control
+  - spaceman
+  - launchcontrol
+  #- libreoffice
+  #- quiterss
+  #- numi
+
+  - macfuse
+  - veracrypt
+
+  # Clouds
+  - nextcloud
+  #- dropbox
+  #- yandex-disk
+
+  # Firewall
+  - little-snitch
+
+mas_email: ""
+mas_password: ""
+mas_installed_apps:
+  - { id: 1440147259,  name: "AdGuard for Safari"}
+  - { id: 1425368544,  name: "Timery"}
+  - { id: 1502839586,  name: "Hand Mirror"}
+  - { id: 1481669779,  name: "Evernote Web Clipper"}
+  - { id: 1452453066,  name: "Hidden Bar"}
+  - { id: 904280696 ,  name: "Things"}
+  - { id: 1480933944,  name: "Vimari"}
+  - { id: 1147396723,  name: "WhatsApp"}
+  - { id: 1270075435,  name: "Strongbox"}
+  - { id: 1064959555,  name: "New File Menu"}
+  - { id: 1509590766,  name: "MuteKey"}
+  - { id: 1462114288,  name: "Grammarly for Safari"}
+  - { id: 1463334954,  name: "SessionRestore"}
+
+# Install packages from other package managers.
+# Note: You are responsible for making sure the required package managers are
+# installed, eg. through homebrew.
+composer_packages: []
+# - name: drush
+#   state: present # present/absent, default: present
+#   version: "^8.1" # default: N/A
+gem_packages: [
+  name: neovim
+# - name: bundler
+#   state: present # present/absent/latest, default: present
+#   version: "~> 1.15.1" # default: N/A
+]
+npm_packages: [
+  name: neovim,
+  name: prettier,
+  name: eslint,
+  name: intelephense
+# - name: webpack
+#   state: present # present/absent/latest, default: present
+#   version: "^2.6" # default: N/A
+  ]
+pip_packages: [
+  name: neovim
+# - name: mkdocs
+#   state: present # present/absent/latest, default: present
+#   version: "0.16.3" # default: N/A
+  ]

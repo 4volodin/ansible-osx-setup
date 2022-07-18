@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.voale.tmutil-backup</string>
+
+  <key>ProgramArguments</key>
+  <array>
+        <string>/usr/bin/tmutil</string>
+        <string>startbackup</string>
+  </array>
+
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>7</integer>
+    <key>Minute</key>
+    <integer>35</integer>
+  </dict>
+
+  <key>StartInterval</key>
+  <integer>43200</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/voale/tmp/tmutil-backup.err</string>
+
+  <key>StandardOutPath</key>
+  <string>/Users/voale/tmp/tmutil-backup.out</string>
+</dict>
+</plist>

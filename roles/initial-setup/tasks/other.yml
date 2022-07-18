@@ -1,0 +1,72 @@
+---
+# Time Machine starts at 7:35 and repeat in 12 hours
+- name: Start services at login
+  copy:
+    src: timemachine/com.voale.tmutil-backup.plist
+    dest: ~/Library/LaunchAgents/com.voale.tmutil-backup.plist
+
+- name: Setup launch agents for services
+  command: launchctl load -F {{ home }}/Library/LaunchAgents/com.voale.tmutil-backup.plist
+
+# ---------------------------------------------------------
+# iPhone backup location
+- name: Start services at login
+  file: src=~/Library/Application\ Support/MobileSync/Backup/ path=/Volumes/voale-raid1-400Gb/ios_backup state=link force=yes
+
+# ---------------------------------------------------------
+#
+- name: Loopback interface
+  copy:
+    src: loopback-alias/com.user.lo0-loopback.plist
+    dest: /Library/LaunchAgents/com.user.lo0-loopback.plist
+    owner: root
+    group: wheel
+    mode: "0644"
+  become: true
+- name: Setup launch agent for loopback alias
+  command: launchctl load -F /Library/LaunchAgents/com.user.lo0-loopback.plist
+  become: true
+
+# ---------------------------------------------------------
+#
+- name: Disable microphone
+  copy:
+    src: microphone/com.voale.mic-disable.plist
+    dest: ~/Library/LaunchAgents/com.voale.mic-disable.plist
+- name: Launch
+  command: launchctl load -F {{ home }}/Library/LaunchAgents/com.voale.mic-disable.plist
+
+# ---------------------------------------------------------
+#
+- name: Reset quick look
+  shell: |
+    sudo xattr -cr ~/Library/QuickLook/*.qlgenerator
+    qlmanage -r
+    qlmanage -r cache
+
+# ---------------------------------------------------------
+- name: Delete Adoobe plist
+  shell: |
+    sudo rm /Library/LaunchDaemons/com.adobe.acc.installer.v2.plist
+    sudo rm /Library/LaunchDaemons/com.adobe.agsservice.plist
+    sudo rm /Library/LaunchAgents/com.adobe.AdobeCreativeCloud.plist
+    sudo rm /Library/LaunchAgents/com.adobe.ccxprocess.plist
+  become: true
+
+# ---------------------------------------------------------
+- name: Create ~/Library/LaunchAgents
+  file:
+    path: ~/.local/share/nvim/backup
+    state: directory
+    mode: "0755"
+# ---------------------------------------------------------
+- name: Install nvim plugins
+  shell: |
+    nvim +PlugInstall +qall
+    nvim +UpdateRemotePlugins +qall
+
+- name: Copy iterm2 profile
+  copy:
+    src: iterm2/com.googlecode.iterm2.plist
+    dest: ~/Library/LaunchAgents/com.googlecode.iterm2.plist
+    force: yes

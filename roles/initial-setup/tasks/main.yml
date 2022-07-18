@@ -1,0 +1,21 @@
+---
+  - name: zsh tmux plugins
+    import_tasks: zsh-tmux-plugins.yml
+    tags: plugins
+
+  - name: yabai-skhd-karabiner
+    import_tasks: yabai-skhd-karabiner.yml
+    tags: yabai
+
+  - name: yubi-gpg
+    import_tasks: yubi-gpg.yml
+    tags: yubi
+
+  - name: extra-packages.yml
+    import_tasks: extra-packages.yml
+    tags: extra
+
+  - name: other
+    import_tasks: other.yml
+    tags: other
+

@@ -1,0 +1,15 @@
+- name: Create alias for dotfiles
+  shell: echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"' >> $HOME/.zshrc
+- name: Backup conf files
+  shell: mkdir -p {{home}}.dotfiles-backup && dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
+
+- name: Clone dotfiles
+  # I set force and update to no so that if I have any working changes or changes that I haven't pushed up it doesn't reset my local history.
+  git: repo=git@github.com:4volodin/{{ item }}.git dest={{ home }}/.{{ item }}.git force=no update=no
+  with_items:
+    - dotfiles
+
+- name: Checkout dotfiles
+  shell: |
+    dotfiles config --local status.showUntrackedFiles no
+    dotfiles checkout -f

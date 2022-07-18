@@ -1,0 +1,87 @@
+---
+# Add something which ensures path is set here
+- name: Install VSCode extensions
+  shell: code --install-extension {{ item }}
+  with_items:
+    #
+    - alefragnani.project-manager
+    - ritwickdey.LiveServer
+    - ms-vsliveshare.vsliveshare
+    - Shan.code-settings-sync
+    - EditorConfig.EditorConfig
+    - vscodevim.vim
+    # themes
+    - GitHub.github-vscode-theme
+    - Hyzeta.vscode-theme-github-light
+    - akamud.vscode-theme-onelight
+    - zhuangtongfa.material-theme
+
+    # html css
+    - be5invis.vscode-custom-css
+    - ecmel.vscode-html-css
+    - Zignd.html-css-class-completion
+    - CelianRiboulet.webvalidator
+    - ritwickdey.live-sass
+
+    # JS
+    - dbaeumer.vscode-eslint
+    - dsznajder.es7-react-js-snippets
+    - xabikos.JavaScriptSnippets
+    - christian-kohler.npm-intellisense
+    #- WallabyJs.quokka-vscode
+
+    # git
+    - donjayamanne.githistory
+    - eamodio.gitlens
+    - mhutchie.git-graph
+    - kisstkondoros.vscode-gutter-preview
+
+      # shell scripting
+    - foxundermoon.shell-format
+    - mads-hartmann.bash-ide-vscode
+    - Remisa.shellman
+    - meronz.manpages
+    - rogalmic.bash-debug
+    - tetradresearch.vscode-h2o
+    - ryu1kn.edit-with-shell
+    - woozy-masta.shell-script-ide
+    - timonwong.shellcheck
+    - jeff-hykin.better-shellscript-syntax
+
+    # docker k8s
+    - ms-azuretools.vscode-docker
+    - exiasr.hadolint
+    - jeff-hykin.better-dockerfile-syntax
+    - ms-kubernetes-tools.vscode-kubernetes-tools
+    - ms-vscode-remote.remote-containers
+
+    - formulahendry.code-runner
+
+    - redhat.vscode-yaml
+    - deerawan.vscode-dash
+    - naumovs.color-highlight
+    - formulahendry.auto-rename-tag
+    - christian-kohler.path-intellisense
+    - shardulm94.trailing-spaces
+    - vittorioromeo.expand-selection-to-scope
+    - xshrim.txt-syntax
+
+    - streetsidesoftware.code-spell-checker
+    - streetsidesoftware.code-spell-checker-russian
+
+    - yzhang.markdown-all-in-one
+    - shd101wyy.markdown-preview-enhanced
+
+    # using macros for Cmd+s
+    - geddski.macros
+
+    # add semicolon
+    - vmsynkov.colonize
+    - chrisvltn.vs-code-semicolon-insertion
+
+    # php
+    #- bmewburn.vscode-intelephense-client
+    #- onecentlin.laravel-blade
+    #- onecentlin.laravel5-snippets
+    #- ryannaddy.laravel-artisan
+    #- wongjn.php-sniffer
